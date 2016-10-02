@@ -1,0 +1,22 @@
+% Charset configuration
+
+charset config "utf -8"
+charset display "utf-8"
+charset outgoing "utf-8"
+
+% From : Benjamin Morali <morali_b@epita.fr>
+
+set username "morali_b"
+set hostname "epita.fr"
+set realname "Benjamin Morali"
+set replyto "morali_b@epita.fr"
+
+% Set the location of the signature
+
+set signature ".signature"
+
+% Set your prefered editor
+
+set editor_command "vim +%d %s"
+
+set sorting_method 9

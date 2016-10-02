@@ -1,0 +1,27 @@
+[user]
+	name = Benjamin Morali
+	email = morali_b@epita.fr
+[alias]
+  co = checkout
+  br = branch
+  c = commit -m
+  l = log
+  s = status
+  a = add
+  o = --oneline
+  g = --graph
+  ls = ls-files
+  pom = push origin master
+  pr = pull --rebase
+  sl = shortlog
+  sls = shortlog -s
+  lf = log --graph --oneline --all --decorate=full
+  A = add -A
+  cl = clone
+  fdp = blame
+[branch]
+  autosetuprebase = always
+[push]
+  default = current
+[core]
+	autocrlf = input
