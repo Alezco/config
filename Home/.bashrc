@@ -2,22 +2,13 @@
                                                                                #
 TERMINAL=urxvt                                                                 #
 EDITOR=vim                                                                     #
-PROJECT=corewar                                                                #
-AUTHOR=morali_b                                                                #
-PROJECTPATH=$AUTHOR-$PROJECT                                                   #
-PROJECTSRC=$PROJECTPATH/src                                                    #
-PROJECTTESTS=$PROJECTPATH/tests                                                #
+export PAGER='most'                                                            #
                                                                                #
 #slrn =========================================================================#
                                                                                #
 export NNTPSERVER=news.epita.fr                                                #
 alias slrnrl='slrn -f ~/.jnewsrc --create'                                     #
 alias rmjlock='rm .jnewsrc-lock'                                               #
-                                                                               #
-#asm ==========================================================================#
-                                                                               #
-#export PATH=/opt/sparc-unknown-linux-gnu/bin:$PATH                            #
-#export CC=sparc-unknown-linux-gnu-gcc                                         #
                                                                                #
 #ls ===========================================================================#
                                                                                #
@@ -33,7 +24,6 @@ alias llah='ls --color -l -a -h'                                               #
 alias gdb='gdb -q'                                                             #
 alias vgd='vgd-clr.sh'                                                         #
 alias vgdf='vgd-clr.sh --tool=memcheck --leak-check=full --show-reachable=yes' #
-export PATH=$PATH:~/.my_bin                                                    #
                                                                                #
 #config =======================================================================#
                                                                                #
@@ -46,31 +36,11 @@ alias i3c='vim ~/.i3/config'                                                   #
                                                                                #
 alias v='vim'                                                                  #
 alias vimrt='vim -O README TODO'                                               #
-function vimo()                                                                #
-{                                                                              #
-  vim -O $1c $1h                                                               #
-}                                                                              #
                                                                                #
 #git ==========================================================================#
                                                                                #
 alias mkauthors='echo "* morali_b" > AUTHORS'                                  #
 alias mkreadme='echo "README: " > README'                                      #
-alias mktodo='cp ~/Ref/TODO .'                                                 #
-alias mkmake='cp ~/Ref/Makefile .'                                             #
-alias mkmain='cp ~/Ref/main.cc .'                                              #
-alias mkgitignore='cp ~/Ref/.gitignore .'                                      #
-function mkrepo()                                                              #
-{                                                                              #
-  mkauthors                                                                    #
-  mkreadme                                                                     #
-  mktodo                                                                       #
-  mkmake                                                                       #
-  mkgitignore                                                                  #
-  mkdir src tests                                                              #
-  cd src                                                                       #
-  mkmain                                                                       #
-  cd ..                                                                        #
-}                                                                              #
 alias nbc='git log --oneline | wc -l'                                          #
 alias nbl='find . -iname "*.cc" -exec grep -vE '^#' {} \; | wc -l'             #
 function nb()                                                                  #
@@ -96,7 +66,6 @@ alias gitc='git commit -m'                                                     #
 alias gitpom='git push origin master'                                          #
 alias gitpr='git pull --rebase'                                                #
 alias bullshit='g pr && g A && g c "Fix coding style" && g pom'                #
-alias stats='~/Scripts/Stats/stats.sh'                                         #
                                                                                #
 #terminal =====================================================================#
                                                                                #
@@ -121,39 +90,18 @@ function cd()                                                                  #
   ls                                                                           #
   return $RET                                                                  #
 }                                                                              #
-alias cdp='cd ~/'$PROJECTPATH                                                  #
-alias cdps='cd ~/'$PROJECTSRC                                                  #
-alias cdpt='cd ~/'$PROJECTTESTS                                                #
-alias 42='cd ~/Projects/morali_b-42sh'                                         #
 export PS1='\[\e[;32m\][Alezco]\[\e[m\] \[\e[;31m\]$? \[\e[1;36m\]\W\[\e[m\] ' #
 alias grep='grep --color=auto'                                                 #
                                                                                #
 #make =========================================================================#
                                                                                #
 alias make='clear; make -j9'                                                   #
-alias mk='make && ./'$PROJECT                                                  #
 alias mk='make'                                                                #
 alias mkcl='make clean'                                                        #
 alias mkch='make check'                                                        #
 alias mkclh='make clean && make check'                                         #
 alias mkd='make doc'                                                           #
 alias re='make clean && make'                                                  #
-                                                                               #
-#firefox ======================================================================#
-                                                                               #
-alias f='firefox'                                                              #
-                                                                               #
-#sql ==========================================================================#
-                                                                               #
-alias sql='~/Scripts/Sql/sql.sh'                                               #
-function sqly1()                                                               #
-{                                                                              #
-  killall mysqld                                                               #
-  cd ~                                                                         #
-  yes "" | mysqld &                                                            #
-}                                                                              #
-alias sqly2='mysql --user=root --password=yakasting'                           #
-alias sqly='yes "" | sqly1 && sqly2'                                           #
                                                                                #
 #compilation ==================================================================#
                                                                                #
@@ -168,18 +116,6 @@ function compile()                                                             #
     g++ -g -std=c++14 -pedantic -Wall -Wextra -Werror $@ -o $FILE && ./$FILE   #
   fi;                                                                          #
 }                                                                              #
-alias auto='~/Scripts/Auto/auto.py'                                            #
-alias bueno='~/Scripts/Bueno/bueno.py'                                         #
-                                                                               #
-#other ========================================================================#
-                                                                               #
-export PAGER='most'                                                            #
-                                                                               #
-#lock  ========================================================================#
-                                                                               #
-alias lock='epi3lock -i ~/Pictures/stars.png -e -p default'                    #
-alias moussa='epi3lock -i ~/Pictures/moussa.png -e -p default'                 #
-alias kt='killall trollock vlc'                                                #
                                                                                #
 #lol ==========================================================================#
                                                                                #
@@ -192,28 +128,17 @@ function rainbow()                                                             #
                              sleep .02                                         #
                            done                                                #
 }                                                                              #
-alias fork='~/Ref/fork'                                                        #
-alias forks=':() { :|:& };:'                                                   #
+alias fork=':() { :|:& };:'                                                   #
 function emacs()                                                               #
 {                                                                              #
   echo "Real men use vim"                                                      #
 }                                                                              #
-alias segfault='~/Scripts/Segfault/segfault.py'                                #
-alias blink='~/Scripts/Blink/blink.py'                                         #
-alias sm='~/Scripts/Sm/sm.py'                                                  #
-alias wsm='watch -c -n 1 ~/Scripts/Sm/sm.py'                                   #
 alias gaby='man syscall'                                                       #
-alias gregoire='man fdp'                                                       #
-alias siarry='man fdp'                                                         #
 alias man="notman"                                                             #
 function notman()                                                              #
 {                                                                              #
   if [ "$1" = "gaby" ]; then                                                   #
     \man syscall                                                               #
-  elif [ "$1" = "gregoire" ]; then                                             #
-    \man fdp                                                                   #
-  elif [ "$1" = "siarry" ]; then                                               #
-    \man fdp                                                                   #
   else                                                                         #
     \man $@                                                                    #
   fi                                                                           #
@@ -239,5 +164,15 @@ function extract()                                                             #
     echo "'$1' is not valid biatch !"                                          #
   fi                                                                           #
 }                                                                              #
+                                                                               #
+#ubuntu =======================================================================#
+                                                                               #
+alias upd='sudo apt-get update'                                                #
+alias upg='sudo apt-get upgrade'                                               #
+alias uu='upd && upg'                                                          #
+alias ar='sudo service apache2 restart'                                        #
+alias back='cd /var/www/html/checkMail-backend'                                #
+alias front='cd ~/Documents/safedesk-frontend'                                 #
+alias rl='rm ~/.Xauthority; gnome-session-quit --no-prompt'                    #
                                                                                #
 #==============================================================================#
