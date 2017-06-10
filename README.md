@@ -1,2 +1,3 @@
 # LinuxConfig
-Archlinux with i3 configuration files and Python scripts
+
+Linux configurations for Ubuntu, Archlinux, and i3. Contains Python scripts.

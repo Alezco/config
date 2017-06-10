@@ -161,7 +161,7 @@ function extract()                                                             #
       *) echo "'$1' cannot be extracted with extract" ;;                       #
     esac                                                                       #
   else                                                                         #
-    echo "'$1' is not valid biatch !"                                          #
+    echo "'$1' is not valid!"                                                  #
   fi                                                                           #
 }                                                                              #
                                                                                #
@@ -171,8 +171,13 @@ alias upd='sudo apt-get update'                                                #
 alias upg='sudo apt-get upgrade'                                               #
 alias uu='upd && upg'                                                          #
 alias ar='sudo service apache2 restart'                                        #
-alias back='cd /var/www/html/checkMail-backend'                                #
-alias front='cd ~/Documents/safedesk-frontend'                                 #
-alias rl='rm ~/.Xauthority; gnome-session-quit --no-prompt'                    #
+                                                                               #
+#adb ==========================================================================#
+                                                                               #
+alias adbrl='adb kill-server && sudo adb start-server'                         #
+                                                                               #
+#windows ======================================================================#
+                                                                               #
+alias cdw='cd /mnt/c/Users/Benjamin'                                           #
                                                                                #
 #==============================================================================#
