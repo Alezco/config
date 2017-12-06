@@ -1,6 +1,6 @@
 [user]
-	name = Benjamin Morali
-	email = morali_b@epita.fr
+  name = Alezco
+  email = benjaminmorali4@hotmail.fr
 [alias]
   co = checkout
   br = branch
@@ -24,4 +24,4 @@
 [push]
   default = current
 [core]
-	autocrlf = input
+  autocrlf = input

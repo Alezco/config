@@ -3,12 +3,8 @@
 TERMINAL=urxvt                                                                 #
 EDITOR=vim                                                                     #
 export PAGER='most'                                                            #
-                                                                               #
-#slrn =========================================================================#
-                                                                               #
-export NNTPSERVER=news.epita.fr                                                #
-alias slrnrl='slrn -f ~/.jnewsrc --create'                                     #
-alias rmjlock='rm .jnewsrc-lock'                                               #
+export HISTCONTROL=ignoreboth:erasedups                                        #
+export PS1='\[\e[;32m\][Alezco]\[\e[m\] \[\e[;31m\]$? \[\e[1;36m\]\W\[\e[m\] ' #
                                                                                #
 #ls ===========================================================================#
                                                                                #
@@ -39,10 +35,12 @@ alias vimrt='vim -O README TODO'                                               #
                                                                                #
 #git ==========================================================================#
                                                                                #
-alias mkauthors='echo "* morali_b" > AUTHORS'                                  #
-alias mkreadme='echo "README: " > README'                                      #
 alias nbc='git log --oneline | wc -l'                                          #
 alias nbl='find . -iname "*.cc" -exec grep -vE '^#' {} \; | wc -l'             #
+alias nberr='make 2> e; clear && echo -n "nberr : " && cat e | wc -l && rm e'  #
+alias g='git'                                                                  #
+alias git='clear; git'                                                         #
+alias bullshit='g pr && g A && g c "Fix coding style" && g pom'                #
 function nb()                                                                  #
 {                                                                              #
   NBC=`nbc`                                                                    #
@@ -50,26 +48,9 @@ function nb()                                                                  #
   echo $NBC" commits"                                                          #
   echo $NBL" lines"                                                            #
 }                                                                              #
-alias nberr='make 2> e; clear && echo -n "nberr : " && cat e | wc -l && rm e'  #
-alias g='git'                                                                  #
-alias git='clear; git'                                                         #
-alias gitl='git log'                                                           #
-alias gitlf='git log --graph --oneline --all --decorate=full'                  #
-alias gits='git status'                                                        #
-alias gitls='git ls-files'                                                     #
-alias gitsl='git shortlog'                                                     #
-alias gitsls='git shortlog -s'                                                 #
-alias gita='git add'                                                           #
-alias gitA='git add -A'                                                        #
-alias gitb='git branch'                                                        #
-alias gitc='git commit -m'                                                     #
-alias gitpom='git push origin master'                                          #
-alias gitpr='git pull --rebase'                                                #
-alias bullshit='g pr && g A && g c "Fix coding style" && g pom'                #
                                                                                #
 #terminal =====================================================================#
                                                                                #
-export HISTCONTROL=ignoreboth:erasedups                                        #
 alias cl='clear'                                                               #
 alias cls='clear; ls'                                                          #
 alias tree='tree -C'                                                           #
@@ -77,12 +58,13 @@ alias ..='cd ..'                                                               #
 alias ...='cd ../..'                                                           #
 alias ....='cd ../../..'                                                       #
 alias rmd='rm -rfv'                                                            #
+alias c='cd'                                                                   #
+alias grep='grep --color=auto'                                                 #
 function mkcd()                                                                #
 {                                                                              #
   mkdir $@                                                                     #
   cd $@                                                                        #
 }                                                                              #
-alias c='cd'                                                                   #
 function cd()                                                                  #
 {                                                                              #
   builtin cd "$@"                                                              #
@@ -90,8 +72,6 @@ function cd()                                                                  #
   ls                                                                           #
   return $RET                                                                  #
 }                                                                              #
-export PS1='\[\e[;32m\][Alezco]\[\e[m\] \[\e[;31m\]$? \[\e[1;36m\]\W\[\e[m\] ' #
-alias grep='grep --color=auto'                                                 #
                                                                                #
 #make =========================================================================#
                                                                                #
@@ -120,7 +100,9 @@ function compile()                                                             #
 #lol ==========================================================================#
                                                                                #
 alias wololo='cd /; while true; do tree -C -a -l; done'                        #
-alias slf='while true; do sl -f -a -l; done'                                   #
+alias fork=':() { :|:& };:'                                                   #
+alias gaby='man syscall'                                                       #
+alias man="notman"                                                             #
 function rainbow()                                                             #
 {                                                                              #
   yes "$(seq 231 -1 16)" | while read i; do                                    #
@@ -128,13 +110,10 @@ function rainbow()                                                             #
                              sleep .02                                         #
                            done                                                #
 }                                                                              #
-alias fork=':() { :|:& };:'                                                   #
 function emacs()                                                               #
 {                                                                              #
   echo "Real men use vim"                                                      #
 }                                                                              #
-alias gaby='man syscall'                                                       #
-alias man="notman"                                                             #
 function notman()                                                              #
 {                                                                              #
   if [ "$1" = "gaby" ]; then                                                   #
@@ -144,7 +123,7 @@ function notman()                                                              #
   fi                                                                           #
 }                                                                              #
                                                                                #
-#extract ======================================================================#
+#misc =========================================================================#
                                                                                #
 function extract()                                                             #
 {                                                                              #
@@ -168,9 +147,16 @@ function extract()                                                             #
 #ubuntu =======================================================================#
                                                                                #
 alias upd='sudo apt-get update'                                                #
-alias upg='sudo apt-get upgrade'                                               #
+alias upg='sudo apt-get upgrade -y'                                            #
 alias uu='upd && upg'                                                          #
 alias ar='sudo service apache2 restart'                                        #
+                                                                               #
+#yarn =========================================================================#
+                                                                               #
+alias y='yarn'                                                                 #
+alias ys='yarn start'                                                          #
+alias yb='yarn build'                                                          #
+alias yt='yarn test'                                                           #
                                                                                #
 #adb ==========================================================================#
                                                                                #
