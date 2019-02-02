@@ -8,8 +8,6 @@
   l = log
   s = status
   a = add
-  o = --oneline
-  g = --graph
   ls = ls-files
   pom = push origin master
   pr = pull --rebase
