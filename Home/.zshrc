@@ -3,29 +3,40 @@
 EDITOR=vim
 export PAGER='most'
 export HISTCONTROL=ignoreboth:erasedups
-export ZSH="/Users/benjaminmorali/.oh-my-zsh"
+export ZSH="/Users/benjamin/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
+unsetopt PROMPT_SP
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 #alias =========================================================================
 
 alias l='ls'
-alias ll='ls -l'
-alias la='ls -a'
 alias lla='ls -la'
 alias llah='ls -lah'
+alias c='cd'
+alias g='git'
 alias bashrc='vim ~/.bash_profile'
 alias sb='source ~/.bash_profile'
 alias zshrc='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias v='vim'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 alias rmd='rm -rfv'
-alias c='cd'
+alias nbl='find . -iname "*.js" -exec grep -vE '^#' {} \; | wc -l'
+alias bullshit='g pr && g A && g c "Fix coding style" && g pom'
+alias y='yarn'
+alias ys='yarn start'
+alias yd='yarn dev'
+alias yda='yarn dev-app'
+alias yb='yarn build'
+alias yt='yarn test'
+alias ya='yarn android'
 
 #functions =====================================================================
 
@@ -62,25 +73,14 @@ function extract()
   fi
 }
 
-#git ===========================================================================
-
-alias nbc='git log -oneline | wc -l'
-alias nbl='find . -iname "*.js" -exec grep -vE '^#' {} \; | wc -l'
-alias g='git'
-alias bullshit='g pr && g A && g c "Fix coding style" && g pom'
-function nb()
+function tb()
 {
- NBC=`nbc`
- NBL=`nbl`
- echo $NBC" commits"
- echo $NBL" lines"
+  g fetch && g co $1 && y && y lint && yt && g s
 }
 
 #lol ===========================================================================
 
-alias wololo='cd /; while true; do tree -C -a -l; done'
 alias fork=':() { :|:& };:'
-alias man="notman"
 function rainbow()
 {
   yes "$(seq 231 -1 16)" | while read i; do
@@ -92,11 +92,3 @@ function emacs()
 {
   echo "Real men use vim"
 }
-
-#yarn ==========================================================================
-
-alias y='yarn'
-alias ys='yarn start'
-alias yd='yarn dev'
-alias yb='yarn build'
-alias yt='yarn test'
