@@ -9,14 +9,16 @@
   s = status
   a = add
   ls = ls-files
+  lf = log --graph --oneline --all --decorate=full
   pom = push origin master
   pr = pull --rebase
-  sl = shortlog
-  sls = shortlog -s
-  lf = log --graph --oneline --all --decorate=full
   A = add -A
   cl = clone
   fdp = blame
+  can = commit --amend --no-edit
+  pf = push --force
+  prom = pull --rebase origin master
+  cob = checkout -b
 [branch]
   autosetuprebase = always
 [push]
