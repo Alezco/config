@@ -1,3 +1,3 @@
-# LinuxConfig
+# config
 
-Linux configurations for Ubuntu, Archlinux, and i3. Contains Python scripts.
+My personal config with Python scripts and i3, vim, bash, zsh and git configuration files.
