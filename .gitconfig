@@ -19,6 +19,7 @@
   pf = push --force
   prom = pull --rebase origin master
   cob = checkout -b
+  bd = branch -D
 [branch]
   autosetuprebase = always
 [push]
