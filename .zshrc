@@ -3,16 +3,11 @@
 EDITOR=vim
 export PAGER='most'
 export HISTCONTROL=ignoreboth:erasedups
-export ZSH="/Users/benjamin/.oh-my-zsh"
+export ZSH="/home/benjamin/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 unsetopt PROMPT_SP
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 #alias =========================================================================
 
@@ -21,22 +16,18 @@ alias lla='ls -la'
 alias llah='ls -lah'
 alias c='cd'
 alias g='git'
-alias bashrc='vim ~/.bash_profile'
-alias sb='source ~/.bash_profile'
 alias zshrc='vim ~/.zshrc'
 alias sz='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias v='vim'
 alias rmd='rm -rfv'
-alias nbl='find . -iname "*.js" -exec grep -vE '^#' {} \; | wc -l'
 alias bullshit='g pr && g A && g c "Fix coding style" && g pom'
 alias y='yarn'
 alias ys='yarn start'
 alias yd='yarn dev'
-alias yda='yarn dev-app'
-alias yb='yarn build'
 alias yt='yarn test'
-alias ya='yarn android'
+alias mi='make install-no-docker'
+alias ms='make start-no-docker'
 
 #functions =====================================================================
 
