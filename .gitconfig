@@ -26,3 +26,4 @@
   default = current
 [core]
   autocrlf = input
+  longpaths = true
