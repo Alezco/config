@@ -21,13 +21,7 @@ alias sz='source ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
 alias v='vim'
 alias rmd='rm -rfv'
-alias bullshit='g pr && g A && g c "Fix coding style" && g pom'
-alias y='yarn'
-alias ys='yarn start'
-alias yd='yarn dev'
-alias yt='yarn test'
-alias mi='make install-no-docker'
-alias ms='make start-no-docker'
+alias nd='npm run dev'
 
 #functions =====================================================================
 
@@ -64,11 +58,6 @@ function extract()
   fi
 }
 
-function tb()
-{
-  g fetch && g co $1 && y && y lint && yt && g s
-}
-
 #lol ===========================================================================
 
 alias fork=':() { :|:& };:'
@@ -81,5 +70,9 @@ function rainbow()
 }
 function emacs()
 {
-  echo "Real men use vim"
+  echo "The best developers use vim"
 }
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
