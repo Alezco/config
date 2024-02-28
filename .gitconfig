@@ -16,14 +16,23 @@
   cl = clone
   fdp = blame
   can = commit --amend --no-edit
-  pf = push --force
-  prom = pull --rebase origin master
+  pf = push --force-with-lease
+  prom = pull --rebase origin main
   cob = checkout -b
   bd = branch -D
+  sa = stash --all
 [branch]
   autosetuprebase = always
+	sort = -comitterdate
 [push]
   default = current
 [core]
   autocrlf = input
-  longpaths = true
+	longpaths = true
+[maintenance]
+	repo = /home/benjamin/litij-front
+	repo = /home/benjamin/litij-back
+[rerere]
+	enabled = true
+[column]
+	ui = auto
