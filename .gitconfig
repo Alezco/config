@@ -23,7 +23,7 @@
   sa = stash --all
 [branch]
   autosetuprebase = always
-	sort = -comitterdate
+	sort = -committerdate
 [push]
   default = current
 [core]
