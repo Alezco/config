@@ -23,16 +23,33 @@
   sa = stash --all
 [branch]
   autosetuprebase = always
-	sort = -committerdate
+  sort = -committerdate
 [push]
-  default = current
+  default = simple
+  autoSetupRemote = true
+  followTags = true
 [core]
   autocrlf = input
-	longpaths = true
-[maintenance]
-	repo = /home/benjamin/litij-front
-	repo = /home/benjamin/litij-back
+  longpaths = true
 [rerere]
-	enabled = true
+  enabled = true
+  autoupdate = true
 [column]
-	ui = auto
+  ui = auto
+[tag]
+  sort = version:refname
+[init]
+  defaultBranch = main
+[diff]
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
